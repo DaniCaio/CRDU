@@ -18,24 +18,20 @@ let produtos = [];
 let id = 0;
 
 
-// Aqui pelo amor de deus nao tenho nem o que explicar kkkkkkkk ele só pega os dados
 // lista produtos
 app.get('/produtos', (req, res) => {
     res.json(produtos);
 });
 
 
-// aqui é o seguinte, o req body é tudo o que tu vai ter que preencher na hora de fazer a requisição, tipo, se tu for criar um produto, tu vai ter que preencher o nome e o preço, o id tem um id++ ou seja ele é autoincrementado, ou seja, ele vai somando 1 pra cada produto criado
 // cria produto
 app.post('/produtos', (req, res) => {
     const { nome, preco } = req.body;
 
-    // ó meu guri, aqui é um if simples, se o nome não existir ou o preço não existir, ele retorna um erro, presta atenção que o || serve pra dizer "ou", então se o nome não existir OU o preço não existir, ele retorna o erro
     if (!nome || preco === undefined) {
         return res.json({ erro: 'nome e preço são obrigatórios' });
     }
 
-    //  Aqui é o mesmo rolê porém com tipo de dado, se o preço não for um número, ele retorna um erro
     if (typeof preco !== 'number') {
         return res.json({ erro: 'preço deve ser um número' });
     }
