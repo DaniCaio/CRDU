@@ -15,7 +15,7 @@ app.listen(3000, () => {
 
 // "DB"
 let produtos = [];
-let id = id++
+let id = 0;
 
 
 // Aqui pelo amor de deus nao tenho nem o que explicar kkkkkkkk ele só pega os dados
